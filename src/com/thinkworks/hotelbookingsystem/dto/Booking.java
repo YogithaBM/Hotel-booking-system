@@ -6,10 +6,10 @@ public class Booking {
     private Room[] rooms;
     private int night;
 
-    public Booking(int bookingId, Guest guest, Room[] room, int night) {
+    public Booking(int bookingId, Guest guest, Room[] rooms, int night) {
         this.bookingId = bookingId;
         this.guest = guest;
-        this.rooms = room;
+        this.rooms = rooms;
         this.night = night;
     }
 
@@ -48,7 +48,12 @@ public class Booking {
     public double totalBookingPrice(){
         double totalBookingPrice=0;
         for(Room room:rooms){
-            totalBookingPrice+=(room.getPrice()*night);
+            if(room.isAvailable()==true) {
+                totalBookingPrice += (room.getPrice() * night);
+            }
+            else{
+                System.out.println(room.getRoomId()+" : choose another room as this room is not available");
+            }
 
         }
         return totalBookingPrice;
