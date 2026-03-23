@@ -36,7 +36,8 @@ public class BookingService {
                 System.out.println("  Room Types : "+room.getRoomType());
             }
             System.out.println("Total Price : " + booking.totalBookingPrice());
-        } else {
+        }
+        else {
             System.out.println("Enter a proper value");
         }
     }

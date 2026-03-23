@@ -52,7 +52,7 @@ public class Booking {
                 totalBookingPrice += (room.getPrice() * night);
             }
             else{
-                System.out.println(room.getRoomId()+" : choose another room as this room is not available");
+                System.out.println("room "+room.getRoomId()+" is not available");
             }
 
         }
