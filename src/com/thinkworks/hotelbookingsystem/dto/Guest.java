@@ -3,12 +3,25 @@ package com.thinkworks.hotelbookingsystem.dto;
 public class Guest {
     private int guestId;
     private String guestName;
-    private long contactNO;
+    private long contactnumber;
+    private Room[] rooms;
+    private int guestAge;
 
-    public Guest(int guestId, String guestName, long contactNO) {
+
+    public Guest(int guestId, String guestName, long contactnumber, Room[] rooms,int guestAge) {
         this.guestId = guestId;
         this.guestName = guestName;
-        this.contactNO = contactNO;
+        this.contactnumber = contactnumber;
+        this.rooms=rooms;
+        this.guestAge=guestAge;
+    }
+
+    public Room[] getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(Room[] rooms) {
+        this.rooms = rooms;
     }
 
     public int getGuestId() {
@@ -27,11 +40,11 @@ public class Guest {
         this.guestName = guestName;
     }
 
-    public long getContactNO() {
-        return contactNO;
+    public long getContactnumber() {
+        return contactnumber;
     }
 
-    public void setContactNO(long contactNO) {
-        this.contactNO = contactNO;
+    public void setContactnumber(long contactnumber) {
+        this.contactnumber = contactnumber;
     }
 }

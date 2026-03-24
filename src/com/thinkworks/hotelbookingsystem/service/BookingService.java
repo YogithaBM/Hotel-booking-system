@@ -1,6 +1,5 @@
 package com.thinkworks.hotelbookingsystem.service;
 
-import com.thinkworks.hotelbookingsystem.dto.Booking;
 import com.thinkworks.hotelbookingsystem.dto.Guest;
 import com.thinkworks.hotelbookingsystem.dto.Room;
 
@@ -16,40 +15,31 @@ public class BookingService {
         }
     }
 
+
     public void printGuestDetails(Guest guest) {
         if (guest != null) {
             System.out.println("ID : " + guest.getGuestId());
             System.out.println("Name : " + guest.getGuestName());
-            System.out.println("Contact : " + guest.getContactNO());
+            System.out.println("Contact : " + guest.getContactnumber());
+            System.out.println("Rooms : ");
+            for(Room room: guest.getRooms()){
+                System.out.println(room.getRoomType());
+            }
         } else {
             System.out.println("Enter a proper value");
         }
     }
 
-    public void printBookingDetails(Booking booking) {
-        if (booking != null) {
-            System.out.println("ID : " + booking.getBookingId());
-            System.out.println("Guests : " + booking.getGuest().getGuestName());
-            System.out.println("Nights : " + booking.getNight());
-            System.out.println("Rooms : ");
-            for (Room room : booking.getRooms()) {
-                System.out.println("  Room Types : "+room.getRoomType());
+    public void printBookingDetails(Guest guest){
+        for(Room room:guest.getRooms()){
+            if(room.isAvailable()){
+                room.setAvailable(false);
+                System.out.println("Room "+room.getRoomType()+" is booked");
+
             }
-            System.out.println("Total Price : " + booking.totalBookingPrice());
-        }
-        else {
-            System.out.println("Enter a proper value");
+            else System.out.println("Room "+room.getRoomType()+" is not available");
         }
     }
-//    public void availableRoom(Room[] rooms){
-//        for (Room room:rooms){
-//            if(room.isAvailable()==true){
-//                System.out.println(room.getRoomId()+" : is available");
-//            }
-//            else{
-//                System.out.println(room.getRoomId()+" : is not available");
-//            }
-//        }
 
 
 }
