@@ -5,8 +5,11 @@ import com.thinkworks.hotelbookingsystem.dto.Room;
 import com.thinkworks.hotelbookingsystem.enums.RoomType;
 import com.thinkworks.hotelbookingsystem.service.BookingService;
 
+import static com.thinkworks.hotelbookingsystem.service.BookingService.HOTEL_NAME;
+
 public class MainRunner {
     public static void main(String[] args) {
+        System.out.println(HOTEL_NAME);
 
         Room room1=new Room(4543, RoomType.DOUBLE,7956.8D);
         Room room2=new Room(7835,RoomType.SINGLE,6437.65D);
