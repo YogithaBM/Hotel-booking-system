@@ -20,12 +20,6 @@ public class MainRunner {
 
         BookingService bookingService=new BookingService();
 
-        bookingService.printRoomDetails(room1);
-        System.out.println("  ");
-
-        bookingService.printGuestDetails(guest);
-        System.out.println("  ");
-
         bookingService.printBookingDetails(guest);
 
 

@@ -7,39 +7,53 @@ public class BookingService {
     public static final String HOTEL_NAME="REST IN PEACE";
     public void printRoomDetails(Room room) {
         if (room != null) {
+            System.out.println("  ");
             System.out.println("ID : " + room.getRoomId());
             System.out.println("Room Type : " + room.getRoomType());
             System.out.println("Price : " + room.getPrice());
             System.out.println("Current Status: " + room.isAvailable());
+            System.out.println("   ");
         } else {
             System.out.println("Enter a proper value");
         }
     }
 
 
-    public void printGuestDetails(Guest guest) {
-        if (guest != null) {
+   public void printGuestDetails(Guest guest) {
+       if (guest != null) {
             System.out.println("ID : " + guest.getGuestId());
             System.out.println("Name : " + guest.getGuestName());
             System.out.println("Contact : " + guest.getContactnumber());
             System.out.println("Rooms : ");
-            for(Room room: guest.getRooms()){
-                System.out.println(room.getRoomType());
-            }
-        } else {
-            System.out.println("Enter a proper value");
-        }
-    }
+           for(Room room: guest.getRooms()){
+               System.out.println(room.getRoomType());
+          }
+       } else {
+           System.out.println("Enter a proper value");
+       }
+   }
 
     public void printBookingDetails(Guest guest){
+        System.out.println("Booking ID : " + guest.getGuestId());
+        System.out.println("Name : " + guest.getGuestName());
+        System.out.println("Contact : " + guest.getContactnumber());
+        System.out.println("Booking details");
+        double totalPrice=0;
         for(Room room:guest.getRooms()){
+
             if(room.isAvailable()){
                 room.setAvailable(false);
                 System.out.println("Room "+room.getRoomType()+" is booked");
+                printRoomDetails(room);
+                totalPrice+= room.getPrice();
 
             }
-            else System.out.println("Room "+room.getRoomType()+" is not available");
+            else {
+                System.out.println("Room "+room.getRoomType()+" is not available");
+            }
+
         }
+        System.out.println("Total Price : "+totalPrice);
     }
 
 
